@@ -33,8 +33,8 @@ app.use('/api/payments', paymentsRouter);
 app.get('/api/contacts', (req, res) => {
   res.json({
     name: 'Liquor Hunt',
-    phone: process.env.CONTACT_PHONE || '+254700000000',
-    email: process.env.CONTACT_EMAIL || 'info@example.com',
+    phone: process.env.CONTACT_PHONE || '+254702060628',
+    email: process.env.CONTACT_EMAIL || 'shakesian6@gmail.com',
     address: process.env.CONTACT_ADDRESS || 'Nairobi, Kenya'
   });
 });
