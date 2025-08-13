@@ -1,8 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import authRouter from './routes/auth.js';
 import productsRouter from './routes/products.js';
 import cartRouter from './routes/cart.js';
@@ -11,6 +9,7 @@ import paymentsRouter from './routes/payments.js';
 import { ensureDb } from './utils/db.js';
 
 dotenv.config();
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -18,10 +17,12 @@ app.use(express.json());
 // Prepare DB (creates file and tables if missing)
 await ensureDb();
 
+// Health check route
 app.get('/', (req, res) => {
   res.json({ ok: true, name: 'Liquor Hunt API' });
 });
 
+// API routes
 app.use('/api/auth', authRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/cart', cartRouter);
